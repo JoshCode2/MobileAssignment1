@@ -28,7 +28,7 @@ export default function HomeScreen() {
         <Ionicons name="ellipsis-horizontal" size={20} />
       </View>
 
-      {/* Post Image */}
+      {/* Post Image IMAGE IS NOT WORKING IDK why*/}
       <Image
         source={{
           uri: "https://images.unsplash.com/photo-1520975922324-8f5948eac3c6",
