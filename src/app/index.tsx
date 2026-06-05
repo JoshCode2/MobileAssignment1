@@ -1,98 +1,193 @@
-import * as Device from "expo-device";
-import { Platform, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import { AnimatedIcon } from "@/components/animated-icon";
-import { HintRow } from "@/components/hint-row";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { WebBadge } from "@/components/web-badge";
-import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
-
-function getDevMenuHint() {
-  if (Platform.OS === "web") {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === "android" ? "cmd+m (or ctrl+m)" : "cmd+d";
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { StyleSheet, View, Image, Text, SafeAreaView, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <SafeAreaView style={styles.container}>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+      {/* Top Navigation */}
+      <View style={styles.topBar}>
+        <Ionicons name="arrow-back" size={24} />
+        <View style={styles.topCenter}>
+          <Text style={styles.topUsername}>OOTD_EVERYDAY</Text>
+          <Text style={styles.topTitle}>Posts</Text>
+        </View>
+        <View style={{ width: 24 }} />
+      </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+      {/* Post Header */}
+      <View style={styles.postHeader}>
+        <Image
+          source={{ uri: "https://i.pravatar.cc/100" }}
+          style={styles.avatar}
+        />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.username}>ootd_everyday</Text>
+          <Text style={styles.subUsername}>via frenchie_fry39</Text>
+        </View>
+        <Ionicons name="ellipsis-horizontal" size={20} />
+      </View>
 
-        {Platform.OS === "web" && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+      {/* Post Image */}
+      <Image
+        source={{
+          uri: "https://images.unsplash.com/photo-1520975922324-8f5948eac3c6",
+        }}
+        style={styles.postImage}
+      />
+
+      {/* Action Icons */}
+      <View style={styles.actions}>
+        <View style={styles.leftIcons}>
+          <Pressable>
+            <Ionicons name="heart-outline" size={26} />
+          </Pressable>
+          <Pressable>
+            <Ionicons name="chatbubble-outline" size={26} />
+          </Pressable>
+          <Pressable>
+            <Ionicons name="paper-plane-outline" size={26} />
+          </Pressable>
+        </View>
+        <Pressable>
+          <Ionicons name="bookmark-outline" size={26} />
+        </Pressable>
+      </View>
+
+
+      {/* Caption */}
+      <Text style={styles.caption}>
+        <Text style={styles.bold}>frenchie_fry39 </Text>
+        Fresh shot on a sunny day! ☀️
+      </Text>
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <Ionicons name="home" size={26} />
+        <Ionicons name="search-outline" size={26} />
+        <Ionicons name="play-circle-outline" size={26} />
+        <Ionicons name="bag-outline" size={26} />
+        <Ionicons name="person-outline" size={26} />
+      </View>
+
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#fff",
+  },
+
+  /* Top Bar */
+  topBar: {
     flexDirection: "row",
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
     alignItems: "center",
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+    justifyContent: "space-between",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
   },
-  heroSection: {
+
+  topCenter: {
     alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
   },
-  title: {
-    textAlign: "center",
+
+  topUsername: {
+    fontSize: 12,
+    color: "gray",
+    fontWeight: "600",
   },
-  code: {
-    textTransform: "uppercase",
+
+  topTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: "stretch",
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+
+  /* Post Header */
+  postHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+
+  avatar: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    marginRight: 10,
+  },
+
+  username: {
+    fontWeight: "bold",
+    fontSize: 14,
+  },
+
+  subUsername: {
+    fontSize: 12,
+    color: "gray",
+  },
+
+  /* Post Image */
+  postImage: {
+    width: "100%",
+    height: 380,
+  },
+
+  /* Actions */
+  actions: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+
+  leftIcons: {
+    flexDirection: "row",
+    gap: 15,
+  },
+
+  /* Text sections */
+  likes: {
+    paddingHorizontal: 15,
+    fontWeight: "600",
+  },
+
+  caption: {
+    paddingHorizontal: 15,
+    marginTop: 4,
+  },
+
+  viewComments: {
+    paddingHorizontal: 15,
+    color: "gray",
+    marginTop: 4,
+  },
+
+  comment: {
+    paddingHorizontal: 15,
+    marginTop: 2,
+  },
+
+  time: {
+    paddingHorizontal: 15,
+    marginTop: 4,
+    fontSize: 11,
+    color: "gray",
+  },
+
+  bold: {
+    fontWeight: "bold",
+  },
+
+  /* Bottom nav */
+  bottomNav: {
+    marginTop: "auto",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingVertical: 12,
+    borderTopWidth: 1,
+    borderColor: "#eee",
   },
 });
