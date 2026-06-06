@@ -17,10 +17,7 @@ export default function HomeScreen() {
 
       {/* Post Header */}
       <View style={styles.postHeader}>
-        <Image
-          source={{ uri: "https://i.pravatar.cc/100" }}
-          style={styles.avatar}
-        />
+        
         <View style={{ flex: 1 }}>
           <Text style={styles.username}>ootd_everyday</Text>
           <Text style={styles.subUsername}>via frenchie_fry39</Text>
@@ -58,7 +55,7 @@ export default function HomeScreen() {
       {/* Caption */}
       <Text style={styles.caption}>
         <Text style={styles.bold}>frenchie_fry39 </Text>
-        Fresh shot on a sunny day! ☀️
+
       </Text>
 
       {/* Bottom Navigation */}
