@@ -20,8 +20,30 @@ export default function HomeScreen() {
         </View>
         <View style={{ width: 24 }} />
       </View>
-
-      {/* Post Header */}
+      {/* TOP BAR */}
+      <View>
+        <Text>ootd_everyday</Text>
+        <Text>Via: frenchie_fry39</Text>
+      </View>
+      ;{/* Likes */}
+      <View>
+        <Text>Liked by paisley.print.48 and 7 others</Text>
+      </View>
+      ;{/* Caption */}
+      <View>
+        <Text>Fresh shot on a sunny day!🌞 </Text>
+      </View>
+      ;{/* Comments */}
+      <View>
+        <Text>View all 12 comments</Text>
+        <Text>lil_wyatt838: Awesome tones</Text>
+        <Text>pia.in.a.pod: Gorg. Love it! ❤️</Text>
+      </View>
+      ;{/* Time */}
+      <View>
+        <Text>1 day ago</Text>
+      </View>
+      ;{/* Post Header */}
       <View style={styles.postHeader}>
         <View style={{ flex: 1 }}>
           <Text style={styles.username}>ootd_everyday</Text>
@@ -29,7 +51,6 @@ export default function HomeScreen() {
         </View>
         <Ionicons name="ellipsis-horizontal" size={20} />
       </View>
-
       {/* Post Image IMAGE IS NOT WORKING IDK why*/}
       <Image
         source={{
@@ -37,7 +58,6 @@ export default function HomeScreen() {
         }}
         style={styles.postImage}
       />
-
       {/* Action Icons */}
       <View style={styles.actions}>
         <View style={styles.leftIcons}>
@@ -55,12 +75,10 @@ export default function HomeScreen() {
           <Ionicons name="bookmark-outline" size={26} />
         </Pressable>
       </View>
-
       {/* Caption */}
       <Text style={styles.caption}>
         <Text style={styles.bold}>frenchie_fry39 </Text>
       </Text>
-
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
         <Ionicons name="home" size={26} />
@@ -190,40 +208,3 @@ const styles = StyleSheet.create({
     borderColor: "#eee",
   },
 });
-{
-  /* TOP BAR */
-}
-<View>
-  <Text>ootd_everyday</Text>
-  <Text>Via: frenchie_fry39</Text>
-</View>;
-
-{
-  /* Likes */
-}
-<View>
-  <Text>Liked by paisley.print.48 and 7 others</Text>
-</View>;
-
-{
-  /* Caption */
-}
-<View>
-  <Text>Fresh shot on a sunny day!🌞 </Text>
-</View>;
-
-{
-  /* Comments */
-}
-<View>
-  <Text>View all 12 comments</Text>
-  <Text>lil_wyatt838: Awesome tones</Text>
-  <Text>pia.in.a.pod: Gorg. Love it! ❤️</Text>
-</View>;
-
-{
-  /* Time */
-}
-<View>
-  <Text>1 day ago</Text>
-</View>;
