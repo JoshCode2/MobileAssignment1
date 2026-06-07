@@ -1,10 +1,16 @@
-import { StyleSheet, View, Image, Text, SafeAreaView, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
-
       {/* Top Navigation */}
       <View style={styles.topBar}>
         <Ionicons name="arrow-back" size={24} />
@@ -17,18 +23,25 @@ export default function HomeScreen() {
 
       {/* Post Header */}
       <View style={styles.postHeader}>
+        <Image
+          source={{
+            uri: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200",
+          }}
+          style={styles.avatar}
+        />
 
         <View style={{ flex: 1 }}>
           <Text style={styles.username}>ootd_everyday</Text>
           <Text style={styles.subUsername}>via frenchie_fry39</Text>
         </View>
+
         <Ionicons name="ellipsis-horizontal" size={20} />
       </View>
 
-      {/* Post Image IMAGE IS NOT WORKING IDK why*/}
+      {/* Post Image */}
       <Image
         source={{
-          uri: "https://images.unsplash.com/photo-1520975922324-8f5948eac3c6",
+          uri: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900",
         }}
         style={styles.postImage}
       />
@@ -39,24 +52,36 @@ export default function HomeScreen() {
           <Pressable>
             <Ionicons name="heart-outline" size={26} />
           </Pressable>
+
           <Pressable>
             <Ionicons name="chatbubble-outline" size={26} />
           </Pressable>
+
           <Pressable>
             <Ionicons name="paper-plane-outline" size={26} />
           </Pressable>
         </View>
+
         <Pressable>
           <Ionicons name="bookmark-outline" size={26} />
         </Pressable>
       </View>
 
-
       {/* Caption */}
       <Text style={styles.caption}>
         <Text style={styles.bold}>frenchie_fry39 </Text>
-
+        Fresh shot on a sunny day! ☀️
       </Text>
+
+      {/* Alert Button */}
+      <Pressable
+        style={styles.alertButton}
+        onPress={() => {
+          window.alert("Alert Button Pressed");
+        }}
+      >
+        <Text style={styles.alertButtonText}>Alert</Text>
+      </Pressable>
 
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
@@ -66,7 +91,6 @@ export default function HomeScreen() {
         <Ionicons name="bag-outline" size={26} />
         <Ionicons name="person-outline" size={26} />
       </View>
-
     </SafeAreaView>
   );
 }
@@ -77,7 +101,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  /* Top Bar */
   topBar: {
     flexDirection: "row",
     alignItems: "center",
@@ -101,12 +124,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-  /* Post Header */
   postHeader: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
 
   avatar: {
@@ -114,6 +136,7 @@ const styles = StyleSheet.create({
     height: 36,
     borderRadius: 18,
     marginRight: 10,
+    backgroundColor: "#ddd",
   },
 
   username: {
@@ -126,13 +149,13 @@ const styles = StyleSheet.create({
     color: "gray",
   },
 
-  /* Post Image */
   postImage: {
     width: "100%",
-    height: 380,
+    height: 420,
+    resizeMode: "cover",
+    backgroundColor: "#eee",
   },
 
-  /* Actions */
   actions: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -145,40 +168,31 @@ const styles = StyleSheet.create({
     gap: 15,
   },
 
-  /* Text sections */
-  likes: {
-    paddingHorizontal: 15,
-    fontWeight: "600",
-  },
-
   caption: {
     paddingHorizontal: 15,
-    marginTop: 4,
-  },
-
-  viewComments: {
-    paddingHorizontal: 15,
-    color: "gray",
-    marginTop: 4,
-  },
-
-  comment: {
-    paddingHorizontal: 15,
     marginTop: 2,
-  },
-
-  time: {
-    paddingHorizontal: 15,
-    marginTop: 4,
-    fontSize: 11,
-    color: "gray",
+    fontSize: 13,
   },
 
   bold: {
     fontWeight: "bold",
   },
 
-  /* Bottom nav */
+  alertButton: {
+    backgroundColor: "black",
+    marginHorizontal: 15,
+    marginTop: 15,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+
+  alertButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+
   bottomNav: {
     marginTop: "auto",
     flexDirection: "row",
