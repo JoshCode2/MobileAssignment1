@@ -34,10 +34,8 @@ export default function HomeScreen() {
           <Text style={styles.username}>ootd_everyday</Text>
           <Text style={styles.subUsername}>via frenchie_fry39</Text>
         </View>
-
         <Ionicons name="ellipsis-horizontal" size={20} />
       </View>
-
       {/* Post Image */}
       <Image
         source={{
@@ -45,34 +43,46 @@ export default function HomeScreen() {
         }}
         style={styles.postImage}
       />
-
       {/* Action Icons */}
       <View style={styles.actions}>
         <View style={styles.leftIcons}>
           <Pressable>
             <Ionicons name="heart-outline" size={26} />
           </Pressable>
-
           <Pressable>
             <Ionicons name="chatbubble-outline" size={26} />
           </Pressable>
-
           <Pressable>
             <Ionicons name="paper-plane-outline" size={26} />
           </Pressable>
         </View>
-
         <Pressable>
           <Ionicons name="bookmark-outline" size={26} />
         </Pressable>
       </View>
-
       {/* Caption */}
       <Text style={styles.caption}>
         <Text style={styles.bold}>frenchie_fry39 </Text>
-        Fresh shot on a sunny day! ☀️
       </Text>
 
+      {/* Likes */}
+      <View>
+        <Text>Liked by paisley.print.48 and 7 others</Text>
+      </View>
+      {/* Caption */}
+      <View>
+        <Text>Fresh shot on a sunny day!🌞 </Text>
+      </View>
+      {/* Comments */}
+      <View>
+        <Text>View all 12 comments</Text>
+        <Text>lil_wyatt838: Awesome tones</Text>
+        <Text>pia.in.a.pod: Gorg. Love it! ❤️</Text>
+      </View>
+      {/* Time */}
+      <View>
+        <Text>1 day ago</Text>
+      </View>
       {/* Alert Button */}
       <Pressable
         style={styles.alertButton}
@@ -101,6 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
+  /* Top Bar */
   topBar: {
     flexDirection: "row",
     alignItems: "center",
@@ -124,11 +135,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
+  /* Post Header */
   postHeader: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
   },
 
   avatar: {
@@ -136,7 +148,6 @@ const styles = StyleSheet.create({
     height: 36,
     borderRadius: 18,
     marginRight: 10,
-    backgroundColor: "#ddd",
   },
 
   username: {
@@ -149,13 +160,13 @@ const styles = StyleSheet.create({
     color: "gray",
   },
 
+  /* Post Image */
   postImage: {
     width: "100%",
-    height: 420,
-    resizeMode: "cover",
-    backgroundColor: "#eee",
+    height: 380,
   },
 
+  /* Actions */
   actions: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -168,10 +179,33 @@ const styles = StyleSheet.create({
     gap: 15,
   },
 
+  /* Text sections */
+  likes: {
+    paddingHorizontal: 15,
+    fontWeight: "600",
+  },
+
   caption: {
     paddingHorizontal: 15,
+    marginTop: 4,
+  },
+
+  viewComments: {
+    paddingHorizontal: 15,
+    color: "gray",
+    marginTop: 4,
+  },
+
+  comment: {
+    paddingHorizontal: 15,
     marginTop: 2,
-    fontSize: 13,
+  },
+
+  time: {
+    paddingHorizontal: 15,
+    marginTop: 4,
+    fontSize: 11,
+    color: "gray",
   },
 
   bold: {
@@ -179,20 +213,20 @@ const styles = StyleSheet.create({
   },
 
   alertButton: {
-    backgroundColor: "black",
-    marginHorizontal: 15,
-    marginTop: 15,
-    paddingVertical: 12,
+    alignSelf: "center",
+    marginTop: 12,
+    backgroundColor: "#007AFF",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
     borderRadius: 8,
-    alignItems: "center",
   },
 
   alertButtonText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 16,
+    color: "#fff",
+    fontWeight: "600",
   },
 
+  /* Bottom nav */
   bottomNav: {
     marginTop: "auto",
     flexDirection: "row",
