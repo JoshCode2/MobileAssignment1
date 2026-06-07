@@ -45,16 +45,23 @@ export default function HomeScreen() {
       </View>
       ;{/* Post Header */}
       <View style={styles.postHeader}>
+        <Image
+          source={{
+            uri: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200",
+          }}
+          style={styles.avatar}
+        />
+
         <View style={{ flex: 1 }}>
           <Text style={styles.username}>ootd_everyday</Text>
           <Text style={styles.subUsername}>via frenchie_fry39</Text>
         </View>
         <Ionicons name="ellipsis-horizontal" size={20} />
       </View>
-      {/* Post Image IMAGE IS NOT WORKING IDK why*/}
+      {/* Post Image */}
       <Image
         source={{
-          uri: "https://images.unsplash.com/photo-1520975922324-8f5948eac3c6",
+          uri: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900",
         }}
         style={styles.postImage}
       />
@@ -79,6 +86,33 @@ export default function HomeScreen() {
       <Text style={styles.caption}>
         <Text style={styles.bold}>frenchie_fry39 </Text>
       </Text>
+      {/* Likes */}
+      <View>
+        <Text>Liked by paisley.print.48 and 7 others</Text>
+      </View>
+      {/* Caption */}
+      <View>
+        <Text>Fresh shot on a sunny day!🌞 </Text>
+      </View>
+      {/* Comments */}
+      <View>
+        <Text>View all 12 comments</Text>
+        <Text>lil_wyatt838: Awesome tones</Text>
+        <Text>pia.in.a.pod: Gorg. Love it! ❤️</Text>
+      </View>
+      {/* Time */}
+      <View>
+        <Text>1 day ago</Text>
+      </View>
+      {/* Alert Button */}
+      <Pressable
+        style={styles.alertButton}
+        onPress={() => {
+          window.alert("Alert Button Pressed");
+        }}
+      >
+        <Text style={styles.alertButtonText}>Alert</Text>
+      </Pressable>
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
         <Ionicons name="home" size={26} />
@@ -196,6 +230,20 @@ const styles = StyleSheet.create({
 
   bold: {
     fontWeight: "bold",
+  },
+
+  alertButton: {
+    alignSelf: "center",
+    marginTop: 12,
+    backgroundColor: "#007AFF",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 8,
+  },
+
+  alertButtonText: {
+    color: "#fff",
+    fontWeight: "600",
   },
 
   /* Bottom nav */
