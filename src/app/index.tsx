@@ -17,7 +17,7 @@ export default function HomeScreen() {
 
       {/* Post Header */}
       <View style={styles.postHeader}>
-        
+
         <View style={{ flex: 1 }}>
           <Text style={styles.username}>ootd_everyday</Text>
           <Text style={styles.subUsername}>via frenchie_fry39</Text>
